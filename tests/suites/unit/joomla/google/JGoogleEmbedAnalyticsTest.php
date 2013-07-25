@@ -2,7 +2,7 @@
 /**
  * @package    Joomla.UnitTest
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright  Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -301,7 +301,9 @@ class JGoogleEmbedAnalyticsTest extends TestCase
 
 		$body = $this->object->getBody();
 
-		$this->assertContains("document.write(unescape(\"%3Cscript src='http://www.google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));", $body);
+		$this->assertContains("document.write(unescape(\"%3Cscript src='http://www.google-analytics.com/ga.js' " .
+			"type='text/javascript'%3E%3C/script%3E\"));", $body
+		);
 		$this->assertContains("var pageTracker = _gat._getTracker('123456');", $body);
 
 		$this->assertContains('pageTracker.method1("hello",true,5,null);', $body);

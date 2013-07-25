@@ -2,7 +2,7 @@
 /**
  * @package    Joomla.UnitTest
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright  Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -889,14 +889,12 @@ class JLoaderTest extends PHPUnit_Framework_TestCase
 		// Unregister all Joomla loader functions if registered.
 		foreach ($loaders as $loader)
 		{
-			if (is_array($loader) && $loader[0] === 'JLoader' &&
-				($loader[1] === 'load'
-					|| $loader[1] === '_autoload'
-					|| $loader[1] === 'loadByNamespaceLowerCase'
-					|| $loader[1] === 'loadByNamespaceNaturalCase'
-					|| $loader[1] === 'loadByNamespaceMixedCase'
-				)
-			)
+			if (is_array($loader) && $loader[0] === 'JLoader'
+				&& ($loader[1] === 'load'
+				|| $loader[1] === '_autoload'
+				|| $loader[1] === 'loadByNamespaceLowerCase'
+				|| $loader[1] === 'loadByNamespaceNaturalCase'
+				|| $loader[1] === 'loadByNamespaceMixedCase'))
 			{
 				spl_autoload_unregister($loader);
 			}

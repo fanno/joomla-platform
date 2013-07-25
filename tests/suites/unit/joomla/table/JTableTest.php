@@ -3,7 +3,7 @@
  * @package     Joomla.UnitTest
  * @subpackage  Table
  *
- * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -175,7 +175,7 @@ class JTableTest extends TestCaseDatabase
 
 		$reflection = new ReflectionClass('JTable');
 
-		// use of realpath to ensure test works for on all platforms
+		// Use of realpath to ensure test works for on all platforms
 		$this->assertEquals(
 			realpath(dirname($reflection->getFileName())),
 			realpath($result[0]),

@@ -3,7 +3,7 @@
  * @package     Joomla.UnitTest
  * @subpackage  User
  *
- * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -244,7 +244,7 @@ class JUserTest extends TestCaseDatabase
 	}
 
 	/**
-	 * Test...
+	 * Test getAuthorisedCategories
 	 *
 	 * @covers JUser::getAuthorisedCategories
 	 * @todo Implement testGetAuthorisedCategories().
@@ -393,13 +393,15 @@ class JUserTest extends TestCaseDatabase
 	public function testBind()
 	{
 		$array = array();
-		$string = '12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890';
+		$string = '12345678901234567890123456789012345678901234567890123456789012345678901234567890'
+			. '12345678901234567890123456789012345678901234567890123456789012345678901234567890'
+			. '1234567890123456789012345678901234567890';
 
 		$array['username'] = $string;
 		$array['password'] = $string;
 		$array['password2'] = $string;
 
-		$testUser = new JUser();
+		$testUser = new JUser;
 		$result = $testUser->bind($array);
 		$this->assertTrue(
 			$result
@@ -415,7 +417,7 @@ class JUserTest extends TestCaseDatabase
 
 		$array['password2'] = 'password_ok_not_same';
 
-		$testUser = new JUser();
+		$testUser = new JUser;
 		$result = $testUser->bind($array);
 		$this->assertFalse(
 			$result

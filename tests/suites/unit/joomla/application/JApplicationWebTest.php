@@ -3,7 +3,7 @@
  * @package     Joomla.UnitTest
  * @subpackage  Application
  *
- * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -486,7 +486,7 @@ class JApplicationWebTest extends TestCase
 			(object) array(
 				'cachable' => null,
 				'headers' => null,
-				'body' => array(str_replace("\r\n","\n",$string)),
+				'body' => array(str_replace("\r\n", "\n", $string)),
 			)
 		);
 
@@ -540,7 +540,7 @@ class JApplicationWebTest extends TestCase
 			(object) array(
 				'cachable' => null,
 				'headers' => null,
-				'body' => array(str_replace("\r\n","\n",$string)),
+				'body' => array(str_replace("\r\n", "\n", $string)),
 			)
 		);
 
@@ -600,7 +600,7 @@ class JApplicationWebTest extends TestCase
 			(object) array(
 				'cachable' => null,
 				'headers' => null,
-				'body' => array(str_replace("\r\n","\n",$string)),
+				'body' => array(str_replace("\r\n", "\n", $string)),
 			)
 		);
 

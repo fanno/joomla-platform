@@ -3,7 +3,7 @@
  * @package     Joomla.UnitTest
  * @subpackage  Html
  *
- * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -1305,13 +1305,15 @@ class JHtmlTest extends TestCase
 		// Testing classical cases
 		$this->assertThat(
 			JHtml::tooltip('Content'),
-			$this->equalTo('<span class="hasTip" title="Content"><img src="' . JURI::base(true) . '/media/system/images/tooltip.png" alt="Tooltip"  /></span>'),
+			$this->equalTo('<span class="hasTip" title="Content"><img src="' .
+				JURI::base(true) . '/media/system/images/tooltip.png" alt="Tooltip"  /></span>'),
 			'Basic tooltip failed'
 		);
 
 		$this->assertThat(
 			JHtml::tooltip('Content', 'Title'),
-			$this->equalTo('<span class="hasTip" title="Title::Content"><img src="' . JURI::base(true) . '/media/system/images/tooltip.png" alt="Tooltip"  /></span>'),
+			$this->equalTo('<span class="hasTip" title="Title::Content"><img src="' .
+				JURI::base(true) . '/media/system/images/tooltip.png" alt="Tooltip"  /></span>'),
 			'Tooltip with title and content failed'
 		);
 
@@ -1329,20 +1331,23 @@ class JHtmlTest extends TestCase
 
 		$this->assertThat(
 			JHtml::tooltip('Content', 'Title', 'tooltip.png', null, null, 'MyAlt'),
-			$this->equalTo('<span class="hasTip" title="Title::Content"><img src="' . JURI::base(true) . '/media/system/images/tooltip.png" alt="MyAlt"  /></span>'),
+			$this->equalTo('<span class="hasTip" title="Title::Content"><img src="' .
+				JURI::base(true) . '/media/system/images/tooltip.png" alt="MyAlt"  /></span>'),
 			'Tooltip with title and content and alt failed'
 		);
 
 		$this->assertThat(
 			JHtml::tooltip('Content', 'Title', 'tooltip.png', null, null, 'MyAlt', 'hasTip2'),
-			$this->equalTo('<span class="hasTip2" title="Title::Content"><img src="' . JURI::base(true) . '/media/system/images/tooltip.png" alt="MyAlt"  /></span>'),
+			$this->equalTo('<span class="hasTip2" title="Title::Content"><img src="' . JURI::base(true) .
+				'/media/system/images/tooltip.png" alt="MyAlt"  /></span>'),
 			'Tooltip with title and content and alt and class failed'
 		);
 
 		// Testing where title is an array
 		$this->assertThat(
 			JHtml::tooltip('Content', array('title' => 'Title')),
-			$this->equalTo('<span class="hasTip" title="Title::Content"><img src="' . JURI::base(true) . '/media/system/images/tooltip.png" alt="Tooltip"  /></span>'),
+			$this->equalTo('<span class="hasTip" title="Title::Content"><img src="' .
+				JURI::base(true) . '/media/system/images/tooltip.png" alt="Tooltip"  /></span>'),
 			'Tooltip with title and content failed'
 		);
 
@@ -1360,17 +1365,20 @@ class JHtmlTest extends TestCase
 
 		$this->assertThat(
 			JHtml::tooltip('Content', array('title' => 'Title', 'alt' => 'MyAlt')),
-			$this->equalTo('<span class="hasTip" title="Title::Content"><img src="' . JURI::base(true) . '/media/system/images/tooltip.png" alt="MyAlt"  /></span>'),
+			$this->equalTo('<span class="hasTip" title="Title::Content"><img src="' .
+				JURI::base(true) . '/media/system/images/tooltip.png" alt="MyAlt"  /></span>'),
 			'Tooltip with title and content and alt failed'
 		);
 		$this->assertThat(
 			JHtml::tooltip('Content', array('title' => 'Title', 'class' => 'hasTip2')),
-			$this->equalTo('<span class="hasTip2" title="Title::Content"><img src="' . JURI::base(true) . '/media/system/images/tooltip.png" alt="Tooltip"  /></span>'),
+			$this->equalTo('<span class="hasTip2" title="Title::Content"><img src="' .
+				JURI::base(true) . '/media/system/images/tooltip.png" alt="Tooltip"  /></span>'),
 			'Tooltip with title and content and class failed'
 		);
 		$this->assertThat(
 			JHtml::tooltip('Content', array()),
-			$this->equalTo('<span class="hasTip" title="Content"><img src="' . JURI::base(true) . '/media/system/images/tooltip.png" alt="Tooltip"  /></span>'),
+			$this->equalTo('<span class="hasTip" title="Content"><img src="' .
+				JURI::base(true) . '/media/system/images/tooltip.png" alt="Tooltip"  /></span>'),
 			'Basic tooltip (array version) failed'
 		);
 

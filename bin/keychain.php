@@ -3,7 +3,7 @@
 /**
  * @package    Joomla.Platform
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright  Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -258,6 +258,7 @@ class KeychainManager extends JApplicationCli
 		var_dump($var);
 		$result = trim(ob_get_contents());
 		ob_end_clean();
+
 		return $result;
 	}
 
@@ -292,6 +293,7 @@ class KeychainManager extends JApplicationCli
 		foreach ($this->keychain->toArray() as $key => $value)
 		{
 			$line = $key;
+
 			if ($this->input->get('print-values'))
 			{
 				$line .= ': ' . $this->dumpVar($value);

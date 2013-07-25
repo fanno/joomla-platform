@@ -3,7 +3,7 @@
  * @package     Joomla.UnitTest
  * @subpackage  Database
  *
- * @copyright   Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2013 Open Source Matters. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -399,6 +399,8 @@ class JDatabaseDriverNosql extends JDatabaseDriver
 	/**
 	 * Method to commit a transaction.
 	 *
+	 * @param   boolean  $toSavepoint  If true roll back to savepoint
+	 *
 	 * @return  void
 	 *
 	 * @since   11.4
@@ -411,6 +413,8 @@ class JDatabaseDriverNosql extends JDatabaseDriver
 	/**
 	 * Method to roll back a transaction.
 	 *
+	 * @param   boolean  $toSavepoint  If true roll back to savepoint
+	 *
 	 * @return  void
 	 *
 	 * @since   11.4
@@ -422,6 +426,8 @@ class JDatabaseDriverNosql extends JDatabaseDriver
 
 	/**
 	 * Method to initialize a transaction.
+	 *
+	 * @param   boolean  $asSavepoint  If true start as savepoint
 	 *
 	 * @return  void
 	 *

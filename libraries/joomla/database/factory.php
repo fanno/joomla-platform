@@ -3,7 +3,7 @@
  * @package     Joomla.Platform
  * @subpackage  Database
  *
- * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -152,7 +152,7 @@ class JDatabaseFactory
 	/**
 	 * Get the current query object or a new JDatabaseQuery object.
 	 *
-	 * @param   string           $name  Name of the driver you want an importer for.
+	 * @param   string           $name  Name of the driver you want an query object for.
 	 * @param   JDatabaseDriver  $db    Optional JDatabaseDriver instance
 	 *
 	 * @return  JDatabaseQuery  The current query object or a new object extending the JDatabaseQuery class.

@@ -2,9 +2,11 @@
 /**
  * @package    Joomla.UnitTest
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright  Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
+
+JLoader::register('JFolder', JPATH_PLATFORM . '/joomla/filesystem/folder.php');
 
 /**
  * Test class for JFolder.
@@ -67,6 +69,19 @@ class JFolderTest extends TestCase
 	}
 
 	/**
+	 * Tests the JFolder::delete method with an array as an input
+	 *
+	 * @return  void
+	 *
+	 * @expectedException  UnexpectedValueException
+	 * @since   11.3
+	 */
+	public function testDeleteArrayPath()
+	{
+		JFolder::delete(array('/path/to/folder') );
+	}
+
+	/**
 	 * Test...
 	 *
 	 * @todo Implement testMove().
@@ -118,7 +133,7 @@ class JFolderTest extends TestCase
 		file_put_contents(JPath::clean(JPATH_TESTS . '/tmp/test/test/index.html'), 'test');
 		file_put_contents(JPath::clean(JPATH_TESTS . '/tmp/test/test/index.txt'), 'test');
 
-		// use of realpath to ensure test works for on all platforms
+		// Use of realpath to ensure test works for on all platforms
 		$result = JFolder::files(JPath::clean(JPATH_TESTS . '/tmp/test'), 'index.*', true, true, array('index.html'));
 		$result[0] = realpath($result[0]);
 		$result[1] = realpath($result[1]);
@@ -131,7 +146,7 @@ class JFolderTest extends TestCase
 			'Line: ' . __LINE__ . ' Should exclude index.html files'
 		);
 
-		// use of realpath to ensure test works for on all platforms
+		// Use of realpath to ensure test works for on all platforms
 		$result = JFolder::files(JPath::clean(JPATH_TESTS . '/tmp/test'), 'index.html', true, true);
 		$result[0] = realpath($result[0]);
 		$result[1] = realpath($result[1]);
@@ -153,7 +168,7 @@ class JFolderTest extends TestCase
 			'Line: ' . __LINE__ . ' Should include only file names of both index.html files'
 		);
 
-		// use of realpath to ensure test works for on all platforms
+		// Use of realpath to ensure test works for on all platforms
 		$result = JFolder::files(JPath::clean(JPATH_TESTS . '/tmp/test'), 'index.html', false, true);
 		$result[0] = realpath($result[0]);
 		$this->assertEquals(
@@ -216,7 +231,7 @@ class JFolderTest extends TestCase
 			JFolder::folders(JPath::clean(JPATH_TESTS . '/tmp/test'), 'bar1', true, true, array('foo1', 'foo2'))
 		);
 
-		// use of realpath to ensure test works for on all platforms
+		// Use of realpath to ensure test works for on all platforms
 		$result = JFolder::folders(JPath::clean(JPATH_TESTS . '/tmp/test'), 'bar1', true, true, array('foo1'));
 		$result[0] = realpath($result[0]);
 		$this->assertEquals(
@@ -224,7 +239,7 @@ class JFolderTest extends TestCase
 			$result
 		);
 
-		// use of realpath to ensure test works for on all platforms
+		// Use of realpath to ensure test works for on all platforms
 		$result = JFolder::folders(JPath::clean(JPATH_TESTS . '/tmp/test'), 'bar1', true, true);
 		$result[0] = realpath($result[0]);
 		$result[1] = realpath($result[1]);
@@ -236,7 +251,7 @@ class JFolderTest extends TestCase
 			$result
 		);
 
-		// use of realpath to ensure test works for on all platforms
+		// Use of realpath to ensure test works for on all platforms
 		$result = JFolder::folders(JPath::clean(JPATH_TESTS . '/tmp/test'), 'bar', true, true);
 		$result[0] = realpath($result[0]);
 		$result[1] = realpath($result[1]);
@@ -252,7 +267,7 @@ class JFolderTest extends TestCase
 			$result
 		);
 
-		// use of realpath to ensure test works for on all platforms
+		// Use of realpath to ensure test works for on all platforms
 		$result = JFolder::folders(JPath::clean(JPATH_TESTS . '/tmp/test'), '.', true, true);
 		$result[0] = realpath($result[0]);
 		$result[1] = realpath($result[1]);
@@ -285,7 +300,7 @@ class JFolderTest extends TestCase
 			JFolder::folders(JPath::clean(JPATH_TESTS . '/tmp/test'), '.', true, false)
 		);
 
-		// use of realpath to ensure test works for on all platforms
+		// Use of realpath to ensure test works for on all platforms
 		$result = JFolder::folders(JPath::clean(JPATH_TESTS . '/tmp/test'), '.', false, true);
 		$result[0] = realpath($result[0]);
 		$result[1] = realpath($result[1]);

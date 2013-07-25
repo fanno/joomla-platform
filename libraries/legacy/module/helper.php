@@ -3,7 +3,7 @@
  * @package     Joomla.Legacy
  * @subpackage  Module
  *
- * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -457,13 +457,13 @@ abstract class JModuleHelper
 
 				if (is_array($cacheparams->modeparams))
 				{
-					$uri = JRequest::get();
+					$uri = JFactory::getApplication()->input->request;
 					$safeuri = new stdClass;
 
 					foreach ($cacheparams->modeparams as $key => $value)
 					{
 						// Use int filter for id/catid to clean out spamy slugs
-						if (isset($uri[$key]))
+						if ($uri->get($key, '') !== '')
 						{
 							$noHtmlFilter = JFilterInput::getInstance();
 							$safeuri->$key = $noHtmlFilter->clean($uri[$key], $value);

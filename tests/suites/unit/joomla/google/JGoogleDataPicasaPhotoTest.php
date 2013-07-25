@@ -2,7 +2,7 @@
 /**
  * @package    Joomla.UnitTest
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright  Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -422,6 +422,8 @@ class JGoogleDataPicasaPhotoTest extends TestCase
  */
 function picasaPhotoCallback($url, array $headers = null, $timeout = null)
 {
+	$response = new stdClass;
+
 	$response->code = 200;
 	$response->headers = array('Content-Type' => 'application/atom+xml');
 	$response->body = JFile::read(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'photo.txt');
@@ -444,6 +446,8 @@ function picasaPhotoCallback($url, array $headers = null, $timeout = null)
 function dataPicasaPhotoCallback($url, $data, array $headers = null, $timeout = null)
 {
 	PHPUnit_Framework_TestCase::assertContains('<title>New Title</title>', $data);
+
+	$response = new stdClass;
 
 	$response->code = 200;
 	$response->headers = array('Content-Type' => 'application/atom+xml');

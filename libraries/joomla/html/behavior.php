@@ -3,7 +3,7 @@
  * @package     Joomla.Platform
  * @subpackage  HTML
  *
- * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -826,7 +826,7 @@ abstract class JHtmlBehavior
 	 * @return  string  JavaScript object notation representation of the array
 	 *
 	 * @since   11.1
-	 * @dprecated  13.3 Use JHtml::getJSObject() instead.
+	 * @deprecated  13.3 Use JHtml::getJSObject() instead.
 	 */
 	protected static function _getJSObject($array = array())
 	{

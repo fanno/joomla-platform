@@ -2,7 +2,7 @@
 /**
  * @package    Joomla.UnitTest
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright  Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -759,6 +759,8 @@ function mapsGeocodeCallback($url, array $headers = null, $timeout = null)
 		$data = "{\n   \"results\" : [],\n   \"status\" : \"ZERO_RESULTS\"\n}\n";
 	}
 
+	$response = new stdClass;
+
 	$response->code = 200;
 	$response->headers = array('Content-Type' => 'application/json');
 	$response->body = $data;
@@ -779,6 +781,8 @@ function mapsGeocodeCallback($url, array $headers = null, $timeout = null)
  */
 function mapsGeocode400Callback($url, array $headers = null, $timeout = null)
 {
+	$response = new stdClass;
+
 	$response->code = 400;
 	$response->headers = array('Content-Type' => 'application/json');
 	$response->body = '';
@@ -799,6 +803,8 @@ function mapsGeocode400Callback($url, array $headers = null, $timeout = null)
  */
 function mapsGeocodeBadJsonCallback($url, array $headers = null, $timeout = null)
 {
+	$response = new stdClass;
+
 	$response->code = 200;
 	$response->headers = array('Content-Type' => 'application/json');
 	$response->body = 'BADDATA';

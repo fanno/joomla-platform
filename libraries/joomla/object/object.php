@@ -3,7 +3,7 @@
  * @package     Joomla.Platform
  * @subpackage  Object
  *
- * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -27,7 +27,7 @@ class JObject
 	 * @var              array
 	 * @since            11.1
 	 * @see              JError
-	 * @deprecated       13.1
+	 * @deprecated       13.3
 	 */
 	protected $_errors = array();
 
@@ -124,7 +124,7 @@ class JObject
 	 *
 	 * @since       11.1
 	 * @see         JError
-	 * @deprecated  13.1
+	 * @deprecated  13.3
 	 */
 	public function getError($i = null, $toString = true)
 	{
@@ -160,7 +160,7 @@ class JObject
 	 *
 	 * @since       11.1
 	 * @see         JError
-	 * @deprecated  13.1
+	 * @deprecated  13.3
 	 */
 	public function getErrors()
 	{
@@ -220,7 +220,7 @@ class JObject
 	 *
 	 * @since       11.1
 	 * @see         JError
-	 * @deprecated  13.1
+	 * @deprecated  13.3
 	 */
 	public function setError($error)
 	{

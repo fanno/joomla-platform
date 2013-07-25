@@ -3,7 +3,7 @@
  * @package     Joomla.UnitTest
  * @subpackage  Github
  *
- * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -108,7 +108,8 @@ class JGithubPullsTest extends PHPUnit_Framework_TestCase
 			->will($this->returnValue($returnData));
 
 		$this->assertThat(
-			$this->object->create('joomla', 'joomla-platform', 'My Pull Request', 'staging', 'joomla-jenkins:mychanges', 'These are my changes - please review them'),
+			$this->object->create('joomla', 'joomla-platform', 'My Pull Request', 'staging', 'joomla-jenkins:mychanges',
+				'These are my changes - please review them'),
 			$this->equalTo(json_decode($this->sampleString))
 		);
 	}
@@ -137,7 +138,8 @@ class JGithubPullsTest extends PHPUnit_Framework_TestCase
 			->with('/repos/joomla/joomla-platform/pulls', json_encode($pull))
 			->will($this->returnValue($returnData));
 
-		$this->object->create('joomla', 'joomla-platform', 'My Pull Request', 'staging', 'joomla-jenkins:mychanges', 'These are my changes - please review them');
+		$this->object->create('joomla', 'joomla-platform', 'My Pull Request', 'staging', 'joomla-jenkins:mychanges',
+			'These are my changes - please review them');
 	}
 
 	/**
